@@ -21,6 +21,6 @@ contract Storage {
 
     function deletePlayer() public {
         delete players[msg.sender];
-        emit Log("deletePlayerById", "Player has been deleted");
+        emit Log("deletePlayer", "Player has been deleted");
     }
 }
