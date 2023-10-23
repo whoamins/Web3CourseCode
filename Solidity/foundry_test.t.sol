@@ -5,7 +5,7 @@ import {Test, console2} from "forge-std/Test.sol";
 import {Storage} from "./Storage.sol";
 
 
-contract CounterTest is Test {
+contract StorageTest is Test {
     Storage public playerStorage;
 
     function setUp() public {
