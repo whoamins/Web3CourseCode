@@ -1,3 +1,6 @@
 [submodule "reentrancy_example/lib/forge-std"]
 	path = reentrancy_example/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "Reentrancy/reentrancy/lib/forge-std"]
+	path = Reentrancy/reentrancy/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
