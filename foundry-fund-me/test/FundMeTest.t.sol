@@ -25,7 +25,7 @@ contract FundMeTest is Test {
         assertEq(fundMe.i_owner(), msg.sender);
     }
 
-    function testPriceFeedSetCorrectly() public {
+    function test_PriceFeedSetCorrectly() public {
         address retreivedPriceFeed = address(fundMe.getPriceFeed());
         console.log(retreivedPriceFeed);
         // (address expectedPriceFeed) = helperConfig.activeNetworkConfig();
