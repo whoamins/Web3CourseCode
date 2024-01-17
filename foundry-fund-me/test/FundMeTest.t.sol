@@ -37,6 +37,15 @@ contract FundMeTest is Test {
         assertEq(address(fundMe.i_owner()).balance, initialBalance + DEFAULT_VALUE_TO_FUND);
     }
 
+    function test_CheaperWithdrawFundsAsOwner() public {
+        fundMe.fund{value: DEFAULT_VALUE_TO_FUND}();
+        uint256 initialBalance = address(fundMe.i_owner()).balance;
+        vm.prank(fundMe.i_owner());
+        fundMe.cheaperWithdraw();
+
+        assertEq(address(fundMe.i_owner()).balance, initialBalance + DEFAULT_VALUE_TO_FUND);
+    }
+
     function test_MinimumDepositIsFive() public {
         assertEq(fundMe.MINIMUM_USD(), 5e18);
     }
