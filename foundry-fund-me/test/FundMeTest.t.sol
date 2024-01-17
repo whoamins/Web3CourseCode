@@ -68,15 +68,15 @@ contract FundMeTest is Test {
     function test_FundSuccess() public {
         vm.prank(USER);
         fundMe.fund{value: DEFAULT_VALUE_TO_FUND}();
-        assertEq(fundMe.addressToAmountFunded(USER), DEFAULT_VALUE_TO_FUND);
-        assertEq(fundMe.funders(0), USER);
+        assertEq(fundMe.s_addressToAmountFunded(USER), DEFAULT_VALUE_TO_FUND);
+        assertEq(fundMe.s_funders(0), USER);
     }
 
     function test_ReceiveFunction() public payable {
         vm.prank(USER);
         (bool success, ) = address(fundMe).call{value: DEFAULT_VALUE_TO_FUND}("");
         assertTrue(success, "Receive function failed");
-        assertEq(fundMe.addressToAmountFunded(USER), DEFAULT_VALUE_TO_FUND);
-        assertEq(fundMe.funders(0), USER);
+        assertEq(fundMe.s_addressToAmountFunded(USER), DEFAULT_VALUE_TO_FUND);
+        assertEq(fundMe.s_funders(0), USER);
     }
 }
